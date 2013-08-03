@@ -1,0 +1,6 @@
+%h3 Vehicular
+
+.row
+  - @makes.each do |make|
+    .large-4.columns
+      = link_to make["name"], make_path(name: make["name"], id: make["id"]), :class => "button large expand"

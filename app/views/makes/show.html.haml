@@ -1,0 +1,10 @@
+%h3
+  = @make
+  > Models
+
+%hr
+
+.row
+  - @models.each do |model|
+    .large-4.columns
+      = link_to model["name"], model_years_path(id: model["id"]), :class => "button large expand"

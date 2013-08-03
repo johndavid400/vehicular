@@ -1,0 +1,15 @@
+%h3 Model Years
+
+%hr
+
+- @model_years.sort{|x,y| x["year"] <=> y["year"] }.each do |year|
+  .row
+    .large-6.columns
+      = link_to year["year"], "#", :class => "button large expand"
+      %div{ :class => "stats", :id => year["year"] }
+        - year["subModels"].each do |sub|
+          .row
+            .large-6.columns
+              = sub["name"]
+
+
