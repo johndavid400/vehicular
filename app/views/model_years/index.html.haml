@@ -1,15 +1,14 @@
 %h3
   = link_to "All Makes", root_path
   >
-  = link_to @make, "#"
+  = link_to @make, make_path(name: @make, id: @model_years.first["makeId"])
   >
-  = link_to @model, "#"
-  > Model Years
+  = @model
 
 
 %hr
 
-- @model_years.sort{|x,y| x["year"] <=> y["year"] }.each do |year|
+- @model_years.sort{|x,y| y["year"] <=> x["year"] }.each do |year|
   .row
     .large-6.columns
       = link_to year["year"], "#", :class => "button large expand", "data-reveal-id" => year["year"]
