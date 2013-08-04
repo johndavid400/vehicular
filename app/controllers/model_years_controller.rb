@@ -3,7 +3,13 @@ class ModelYearsController < ApplicationController
   def index
     @make = params["make"]
     @model = params["model"]
-    @model_years = Edmunds::ModelYear.new.for_model_id(params[:id])
+    if session[:condition] == "ALL"
+      @model_years = Edmunds::ModelYear.new.for_model_id(params[:id])
+    elsif session[:condition] == "USED"
+      @model_years = Edmunds::ModelYear.new.find_used_model_years_by_model_id(params[:id])
+    else
+      @model_years = Edmunds::ModelYear.new.find_new_model_years_by_model_id(params[:id])
+    end
   end
 
   def show
