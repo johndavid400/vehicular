@@ -10,7 +10,7 @@
       - @images.each do |image|
         %li
           %center
-            = image_tag(get_image(image["photoSrcs"]))
+            = image_tag(find_best_image(image["photoSrcs"]))
           .orbit-caption= image["captionTranscript"]
 
     :javascript

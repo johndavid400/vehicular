@@ -1,16 +1,7 @@
 module ModelYearsHelper
 
   def get_sample_image_for_style(style)
-    image = Edmunds::Photo.new.find_sample_by_style_id(style)
-    image.match(/http/)
-    image
-  rescue
-    "/assets/no-image.jpg"
-  end
-
-  def get_sample_image_for_model_year(year)
-    style = year["styles"].first["id"]
-    Edmunds::Photo.new.find_sample_by_style_id(style)
+    get_image(style)
   end
 
   def get_sample_image_for_model(model)
@@ -23,11 +14,19 @@ module ModelYearsHelper
     else
       condition = "USED"
     end
-    style = model["subModels"][condition].first["styleIds"].first
-    Edmunds::Photo.new.find_sample_by_style_id(style)
+    style = model["subModels"][condition].first["styleIds"]
+    get_image(style)
   end
 
-  def get_image(urls)
+  def get_image(style)
+    image = Edmunds::Photo.new.find_sample_by_style_id(style)
+    image.match(/http/)
+    image
+  rescue
+    "/assets/no-image.jpg"
+  end
+
+  def find_best_image(urls)
     "http://media.ed.edmunds-media.com" + urls.select{|s| s.match(/\d{3}(.jpg)/) }.max
   end
 
