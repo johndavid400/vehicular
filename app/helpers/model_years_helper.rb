@@ -1,7 +1,11 @@
 module ModelYearsHelper
 
   def get_sample_image_for_style(style)
-    Edmunds::Photo.new.find_sample_by_style_id(style)
+    image = Edmunds::Photo.new.find_sample_by_style_id(style)
+    image.match(/http/)
+    image
+  rescue
+    get_image(Edmunds::Photo.new.find_by_style_id(style).select{|s| s["subType"] == "exterior" }.first["photoSrcs"])
   end
 
   def get_sample_image_for_model_year(year)
