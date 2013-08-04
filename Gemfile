@@ -34,4 +34,4 @@ end
 
 gem "haml"
 gem "pry"
-gem "edmunds_ruby"
+gem "edmunds_ruby", :git => "git@github.com:johndavid400/edmunds_ruby.git"

@@ -12,7 +12,7 @@
     .large-4.columns
       .block
         = link_to year["year"], model_year_path(id: year["id"]), :class => "button large expand", :id => year["year"]
-        = image_tag(get_sample_image_for_style(year["subModels"].first["styleIds"].first), :class => "sample_image")
+        = image_tag(get_sample_image_for_style(year["subModels"].first["styleIds"]), :class => "sample_image")
 
 
 

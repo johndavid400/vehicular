@@ -5,7 +5,7 @@ module ModelYearsHelper
     image.match(/http/)
     image
   rescue
-    get_image(Edmunds::Photo.new.find_by_style_id(style).select{|s| s["subType"] == "exterior" }.first["photoSrcs"])
+    "/assets/no-image.jpg"
   end
 
   def get_sample_image_for_model_year(year)
