@@ -23,4 +23,8 @@ module ModelYearsHelper
     Edmunds::Photo.new.find_sample_by_style_id(style)
   end
 
+  def get_image(urls)
+    "http://media.ed.edmunds-media.com" + urls.select{|s| s.match(/\d{3}(.jpg)/) }.max
+  end
+
 end

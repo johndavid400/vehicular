@@ -12,3 +12,29 @@
 .sample_image{
   margin-top: -25px;
 }
+
+table thead, table tfoot {
+  background: none repeat scroll 0 0 gray;
+  font-weight: bold;
+}
+
+table{
+  width: 100%;
+  thead{
+  }
+}
+
+table tr.even, table tr.alt, table tr:nth-of-type(2n) {
+  background: none repeat scroll 0 0 lavender;
+}
+
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td {
+  border: 1px solid lightblue;
+  display: table-cell;
+  line-height: 1.125em;
+}
+
+.orbit-bullets{
+  display: none;
+}
+

@@ -1,0 +1,21 @@
+.row
+  .large-12.columns
+    %h3
+      = link_to "All Makes", root_path
+      >
+      = @name
+
+    %hr
+
+.row
+  .large-4.columns
+    = image_tag(get_sample_image_for_style(@styles.first["subModels"].first["styleIds"].first))
+
+%ul
+  - @styles.each do |style|
+    %li
+      = link_to style["attributeGroups"]["STYLE_INFO"]["attributes"]["STANDARD_VEHICLE_DESCRIPTION"]["value"], style_detail_path(id: style["id"])
+
+
+
+

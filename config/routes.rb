@@ -8,8 +8,9 @@ Vehicular::Application.routes.draw do
   get "makes" => "makes#index"
   get "make"  => "makes#show"
 
-  get "model_years" => "model_years#index"
-  get "model_year"  => "model_years#show"
+  get "model_years"  => "model_years#index"
+  get "model_year"   => "model_years#show"
+  get "style_detail" => "model_years#details"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

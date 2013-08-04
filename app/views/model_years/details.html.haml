@@ -1,0 +1,42 @@
+.row
+  .large-12.columns
+    %h3
+      = link_to "All Makes", root_path
+
+
+.row
+  .large-12.columns
+    %ul{"data-options" => "timer_speed: 5000;", "data-orbit" => ""}
+      - @images.each do |image|
+        %li
+          %center
+            = image_tag(get_image(image["photoSrcs"]))
+          .orbit-caption= image["captionTranscript"]
+
+    :javascript
+      $(document).foundation('orbit');
+
+.row
+  .large-12.columns
+    %h4 Features
+.row
+  .large-12.columns
+    - @style.first["attributeGroups"].each do |attr_group|
+      %table
+        %thead
+          %tr
+            %th{:colspan => 2}
+              %h4= attr_group.last["name"].gsub(/_/," ")
+        %tbody
+          - if attr_group.last["attributes"]
+            %tr
+              - attr_group.last["attributes"].each do |attr|
+                %tr
+                  %td
+                    %h6
+                      = attr.last["name"].gsub(/_/," ")
+                  %td
+                    - if attr.last["value"]
+                      = attr.last["value"]
+                    - else
+                      = "n/a"
