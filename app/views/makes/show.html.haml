@@ -6,6 +6,10 @@
 %hr
 
 .row
-  - @models.each do |model|
+  - @models.sort{|x,y| x["name"] <=> y["name"] }.each do |model|
     .large-4.columns
-      = link_to model["name"], model_years_path(make: @make, model: model["name"], id: model["id"]), :class => "button large expand"
+      .block
+        = link_to model["name"], model_years_path(make: @make, model: model["name"], id: model["id"]), :class => "button large expand"
+        = image_tag(get_sample_image_for_model(model), :class => "sample_image")
+
+

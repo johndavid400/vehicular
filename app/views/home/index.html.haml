@@ -1,0 +1,10 @@
+%h3 Vehicular
+
+%hr
+
+.row
+  - @types.each do |type|
+    .large-4.columns
+      = link_to type, makes_path(type: type), :class => "button large expand"
+
+
