@@ -6,7 +6,7 @@
 
 .row
   .large-12.columns
-    %ul{"data-options" => "timer_speed: 5000;", "data-orbit" => ""}
+    %ul{"data-options" => "timer_speed: 8000;", "data-orbit" => ""}
       - @images.each do |image|
         %li
           %center
@@ -21,12 +21,17 @@
     %h4 Features
 .row
   .large-12.columns
+    .row
+      - @style.first["attributeGroups"].map{|s| s[0] }.sort{|x,y| x <=> y }.each do |group|
+        .large-3.small-12.columns= link_to group, "##{group}", :class => "button small expand"
     - @style.first["attributeGroups"].each do |attr_group|
-      %table
+      %table{:id => "#{attr_group[0]}"}
         %thead
           %tr
             %th{:colspan => 2}
-              %h4= attr_group.last["name"].gsub(/_/," ")
+              %h4
+                = attr_group.last["name"].gsub(/_/," ")
+                = link_to "(Top)", "#", :style => "color: lightblue; margin-left: 10px;"
         %tbody
           - if attr_group.last["attributes"]
             %tr
