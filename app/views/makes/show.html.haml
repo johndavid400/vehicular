@@ -1,9 +1,12 @@
-%h3
-  = link_to "All Makes", root_path
-  >
-  = session[:condition].titleize
-  >
-  = @make
+.container
+  %h3
+    = link_to session[:condition].titleize, root_path
+    = ":"
+    = link_to "Makes", makes_path
+    >
+    = @make
+    >
+    = "Models"
 
 %hr
 

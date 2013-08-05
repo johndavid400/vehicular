@@ -1,8 +1,16 @@
-.row
-  .large-12.columns
-    %h3
-      = link_to "All Makes", root_path
-
+.container
+  %h3
+    = link_to session[:condition].titleize, root_path
+    = ":"
+    = link_to "Makes", makes_path
+    >
+    = link_to @make, make_path(name: @make, id: @make_id)
+    >
+    = link_to @model, model_years_path(make: @make, model: @model, id: @model_id)
+    >
+    = link_to @year, model_year_path(id: @model_year_id)
+    >
+    = @style_name
 
 .row
   .large-12.columns

@@ -1,9 +1,14 @@
-%h3
-  = link_to "All Makes", root_path
-  >
-  = link_to @make, make_path(name: @make, id: @model_years.first["makeId"])
-  >
-  = @model
+.container
+  %h3
+    = link_to session[:condition].titleize, root_path
+    = ":"
+    = link_to "Makes", makes_path
+    >
+    = link_to @make, make_path(name: @make, id: @model_years.first["makeId"])
+    >
+    = @model
+    >
+    = "Model Years"
 
 %hr
 

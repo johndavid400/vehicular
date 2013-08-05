@@ -1,13 +1,13 @@
-%h3
-  Vehicular
-  >
-  = session[:condition].titleize
-  Makes
+.container
+  %h3
+    Makes
+    >
+    = session[:condition].titleize
 
 .row
   - @makes.each do |make|
     .large-4.columns
-      = link_to make["name"], make_path(name: make["name"], id: make["id"]), :class => "button large expand"
+      = link_to make["name"], make_path(name: make["name"], id: make["id"]), :class => "button large expand loading"
 
 #loading.reveal-modal
   %center
@@ -16,6 +16,6 @@
     = image_tag("loading.gif")
 
 :javascript
-  $(".button").click(function(){
+  $(".loading").click(function(){
     $('#loading').foundation('reveal', 'open'); 
   });

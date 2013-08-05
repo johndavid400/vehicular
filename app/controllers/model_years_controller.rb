@@ -14,12 +14,23 @@ class ModelYearsController < ApplicationController
 
   def show
     @styles = Edmunds::Style.new.find_styles_by_model_year_id(params[:id])
-    @name = "#{@styles.first["year"]} #{@styles.first["makeName"]} #{@styles.first["modelName"]}"
+    @model_id = @styles.first["modelId"]
+    @make_id = @styles.first["makeId"]
+    @year = @styles.first["year"]
+    @make = @styles.first["makeName"]
+    @model = @styles.first["modelName"]
   end
 
   def details
     style_id = params[:id]
     @style = Edmunds::Style.new.find_by_id(style_id)
+    @model_id = @style.first["modelId"]
+    @make_id = @style.first["makeId"]
+    @year = @style.first["year"]
+    @make = @style.first["makeName"]
+    @model = @style.first["modelName"]
+    @model_year_id = @style.first["modelYearId"]
+    @style_name = @style.first["attributeGroups"]["MAIN"]["attributes"]["NAME"]["value"]
     @images = Edmunds::Photo.new.find_by_style_id(style_id)
   end
 
