@@ -8,13 +8,13 @@
     %hr
 
 .row
-  .large-4.columns
+  .large-10.large-centered.columns
     = image_tag(get_sample_image_for_style(@styles.first["subModels"].first["styleIds"]))
 
-%ul
+  %p
   - @styles.each do |style|
-    %li
-      = link_to style["attributeGroups"]["STYLE_INFO"]["attributes"]["STANDARD_VEHICLE_DESCRIPTION"]["value"], style_detail_path(id: style["id"])
+    .large-10.large-centered.columns
+      = link_to style["attributeGroups"]["STYLE_INFO"]["attributes"]["STANDARD_VEHICLE_DESCRIPTION"]["value"], style_detail_path(id: style["id"]), :class => "button expand"
 
 
 

@@ -41,3 +41,7 @@ table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoo
 .top-bar{
   color: white;
 }
+.top-bar-section li a:not(.button) {
+  line-height: 44px;
+}
+

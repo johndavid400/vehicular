@@ -8,3 +8,14 @@
   - @makes.each do |make|
     .large-4.columns
       = link_to make["name"], make_path(name: make["name"], id: make["id"]), :class => "button large expand"
+
+#loading.reveal-modal
+  %center
+    %h4 Loading content
+  %center
+    = image_tag("loading.gif")
+
+:javascript
+  $(".button").click(function(){
+    $('#loading').foundation('reveal', 'open'); 
+  });
