@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Vehicular::Application.load_tasks
+Edmunds::Application.load_tasks

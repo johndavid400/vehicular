@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: vehicular_development
+  database: edmunds_development
   pool: 5
   timeout: 5000
 
@@ -14,12 +14,12 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: postgresql
-  database: vehicular_test
+  database: edmunds_test
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
-  database: vehicular_production
+  database: edmunds_production
   pool: 5
   timeout: 5000
