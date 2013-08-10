@@ -16,6 +16,9 @@ module ModelYearsHelper
     end
     style = model["subModels"][condition].first["styleIds"]
     get_image(style)
+  rescue
+    style = model["subModels"].first.last.first["styleIds"]
+    get_image(style)
   end
 
   def get_image(style)
