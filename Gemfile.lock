@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:johndavid400/edmunds_ruby.git
+  revision: fa6ef3e0b8a9544493589d0590a188457dbded3a
+  specs:
+    edmunds_ruby (1.0.1)
+      crack
+      rails
+      rest-client
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -45,10 +54,6 @@ GEM
       compass (>= 0.12.2, < 0.14)
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
-    edmunds_ruby (1.0.2)
-      crack
-      rails
-      rest-client
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -105,7 +110,7 @@ GEM
     ref (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    safe_yaml (0.9.4)
+    safe_yaml (0.9.5)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -149,7 +154,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   compass-rails
-  edmunds_ruby
+  edmunds_ruby!
   haml
   jbuilder (~> 1.2)
   jquery-rails
