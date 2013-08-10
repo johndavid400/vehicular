@@ -20,7 +20,7 @@
   %p
   - @styles.each do |style|
     .large-6.columns
-      = link_to style["attributeGroups"]["STYLE_INFO"]["attributes"]["STANDARD_VEHICLE_DESCRIPTION"]["value"], style_detail_path(id: style["id"]), :class => "button expand"
+      = link_to style_name(style), style_detail_path(id: style["id"]), :class => "button expand"
 
 
 

@@ -26,6 +26,18 @@
 
 .row
   .large-12.columns
+    %table
+      %thead
+        %tr
+          %th{:colspan => 2}
+            %h4 Engine Specs
+      %tbody
+        - @engine.first.last["attributeGroups"]["ENGINE"]["attributes"].each do |attr|
+          %tr
+            %td= attr.last["name"].humanize
+            %td= attr.last["value"]
+.row
+  .large-12.columns
     %h4 Features
 .row
   .large-12.columns

@@ -22,8 +22,9 @@ class ModelYearsController < ApplicationController
   end
 
   def details
-    style_id = params[:id]
-    @style = Edmunds::Style.new.find_by_id(style_id)
+    @style_id = params[:id]
+    @style = Edmunds::Style.new.find_by_id(@style_id)
+    @engine = Edmunds::Equipment.new.find_engines_by_style_id(@style_id)
     @model_id = @style.first["modelId"]
     @make_id = @style.first["makeId"]
     @year = @style.first["year"]
@@ -31,7 +32,7 @@ class ModelYearsController < ApplicationController
     @model = @style.first["modelName"]
     @model_year_id = @style.first["modelYearId"]
     @style_name = @style.first["attributeGroups"]["MAIN"]["attributes"]["NAME"]["value"]
-    @images = Edmunds::Photo.new.find_by_style_id(style_id)
+    @images = Edmunds::Photo.new.find_by_style_id(@style_id)
   end
 
 end

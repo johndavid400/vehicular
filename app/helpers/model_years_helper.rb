@@ -33,4 +33,21 @@ module ModelYearsHelper
     "http://media.ed.edmunds-media.com" + urls.select{|s| s.match(/\d{3}(.jpg)/) }.max
   end
 
+  def style_name(style)
+    "#{style["attributeGroups"]["STYLE_INFO"]["attributes"]["STANDARD_VEHICLE_DESCRIPTION"]["value"]} #{horsepower(style)}"
+  end
+
+  def horsepower(style)
+    engine_specs = Edmunds::Equipment.new.find_engines_by_style_id(style["id"])
+    "#{engine_specs.first.last["attributeGroups"]["ENGINE"]["attributes"]["HORSEPOWER"]["value"]}HP"
+  end
+
+  def engine_highlights(engine)
+    stats = engine.first.last["attributeGroups"]["ENGINE"]["attributes"]
+    engine_stats = "#{stats["SIZE"]["value"]}L #{stats["HORSEPOWER"]["value"]}HP #{stats["ENGINE_CONFIGURATION"]["value"]} #{stats["CYLINDER"]["value"]}"
+    "Engine Highlights: #{engine_stats}"
+  rescue
+    ""
+  end
+
 end
