@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:johndavid400/edmunds_ruby.git
+  remote: https://github.com/johndavid400/edmunds_ruby.git
   revision: fa6ef3e0b8a9544493589d0590a188457dbded3a
   specs:
     edmunds_ruby (1.0.1)
