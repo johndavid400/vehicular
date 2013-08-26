@@ -40,6 +40,8 @@ module ModelYearsHelper
   def horsepower(style)
     engine_specs = Edmunds::Equipment.new.find_engines_by_style_id(style["id"])
     "#{engine_specs.first.last["attributeGroups"]["ENGINE"]["attributes"]["HORSEPOWER"]["value"]}HP"
+  rescue
+    ""
   end
 
   def engine_highlights(engine)
