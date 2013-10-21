@@ -34,7 +34,14 @@ module ModelYearsHelper
   end
 
   def style_name(style)
-    "#{style["attributeGroups"]["STYLE_INFO"]["attributes"]["STANDARD_VEHICLE_DESCRIPTION"]["value"]} #{horsepower(style)}"
+    "#{style["attributeGroups"]["STYLE_INFO"]["attributes"]["STANDARD_VEHICLE_DESCRIPTION"]["value"]} #{horsepower(style)} #{mpg(style)}"
+  end
+
+  def mpg(style)
+    attributes = style["attributeGroups"]["SPECIFICATIONS"]["attributes"]
+    "- #{attributes["EPA_CITY_MPG"]["value"]}/#{attributes["EPA_HIGHWAY_MPG"]["value"]} mpg"
+  rescue
+    ""
   end
 
   def horsepower(style)
