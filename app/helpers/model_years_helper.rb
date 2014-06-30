@@ -26,7 +26,7 @@ module ModelYearsHelper
     image.match(/http/)
     image
   rescue
-    "/assets/no-image.jpg"
+    "/public/no-image.jpg"
   end
 
   def find_best_image(urls)
