@@ -41,4 +41,5 @@ gem "edmunds_ruby"
 #gem "edmunds_ruby", :git => "https://github.com/johndavid400/edmunds_ruby.git", :branch => "master"
 #gem "edmunds_ruby", :path => "~/github/edmunds_ruby"
 
-gem 'unicorn'
+#gem 'unicorn'
+gem 'thin'
